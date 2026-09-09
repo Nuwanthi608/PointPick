@@ -4,6 +4,7 @@ const cors = require('cors');
 const path = require('path');
 
 const proxyRoutes = require('./routes/proxyRoutes');
+const scrapeRoutes = require('./routes/scrapeRoutes');
 
 const app = express();
 
@@ -18,6 +19,7 @@ app.get('/api/health', (req, res) => {
 });
 
 app.use('/api', proxyRoutes);
+app.use('/api', scrapeRoutes);
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
